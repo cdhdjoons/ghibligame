@@ -33,7 +33,7 @@ export default function Intro() {
                 >
                     <div className="w-[30vmax] sm:w-[25vmax] aspect-[402/119] relative">
                         <Image
-                            src="/image/sagu_intro_logo.png"
+                            src="/image/ghibli_intro_logo.png"
                             alt="main logo"
                             layout="fill"
                             objectFit="cover"

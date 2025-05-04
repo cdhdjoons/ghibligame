@@ -34,16 +34,14 @@ export default function Home() {
             transition={{ duration: 0.3 }}
           >
             <div className="w-[90%] max-w-[500px] px-[3%] flex flex-col items-start relative ">
-              <div className=" w-full flex flex-col">
-                <p className="text-white text-[3.5vmin] sm:text-[2.5vmin] xs:text-[4.5vmin]">Welcome</p>
-              </div>
-              <div className="w-[50vmin] sm:w-[40vmin] aspect-[306/59] relative">
+              <div className="w-[50vmin] sm:w-[40vmin] aspect-[353/99] relative">
                 <Image
-                  src="/image/sagu_logo.png"
+                  src="/image/ghibli_title_logo.png"
                   alt="main logo"
                   layout="fill"
                   objectFit="cover"
                 />
+                <p className="text-white absolute right-[5%] text-[3.5vmin] sm:text-[2.5vmin] xs:text-[4.5vmin]">Welcome</p>
               </div>
             </div>
 

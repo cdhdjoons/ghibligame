@@ -142,7 +142,7 @@ export default function ClaimTimer() {
                 <div className="w-full h-[20%] flex justify-center items-center relative ">
                     <div className="w-[90%] py-[5%] h-full sm:w-[90%] relative flex flex-col justify-between items-center rounded-[23px] bg-mainBoxBg">
                         <div className="w-full flex justify-center gap-[10%] items-center  ">
-                            <p className="  text-[#E1FF41] text-[4.5vmin] sm:text-[2.5vmin] font-bold">Earn SAGU</p>
+                            <p className="  text-[#E1FF41] text-[4.5vmin] sm:text-[2.5vmin] font-bold">Earn GHIB</p>
                             <p className=" text-[#808080] text-[4.5vmin] sm:text-[2.5vmin] font-bold ">{formatTime(time)}</p>
                         </div>
                         <p className="text-white opacity-50 text-center text-[3vmin] sm:text-[1.5vmin]">AI is currently evaluating your response.</p>
