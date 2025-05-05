@@ -62,8 +62,8 @@ export default function Invite() {
                                 <p className=" text-white text-[3vmin] sm:text-[1.7vmin]">Get a question pass for each friend who joins</p>
                             </div>
                             <div className="flex flex-col pb-[2%]">
-                                <p className=" text-white text-[3vmin] sm:text-[2.3vmin] font-bold">Your friends join SageUnion</p>
-                                <p className=" text-white text-[3vmin] sm:text-[1.7vmin]">They start contributing and earning SAGU too</p>
+                                <p className=" text-white text-[3vmin] sm:text-[2.3vmin] font-bold">Your friends join GHIB</p>
+                                <p className=" text-white text-[3vmin] sm:text-[1.7vmin]">They start contributing and earning GHIB too</p>
                             </div>
                             <p className=" text-white text-[3vmin] sm:text-[2.5vmin] font-bold">1 friend = 1 creation ticket</p>
                             <p className=" text-white text-[3vmin] sm:text-[2.5vmin]">Equivalent to 2000 GHIB</p>

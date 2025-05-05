@@ -11,7 +11,7 @@ export default function LeaderBoard() {
     const [teleId, setTeleId] = useState('unknown');
     const [rank, setRank] = useState(0);
     //홀더 숫자 상승 
-    const [holderCount, setHolderCount] = useState(125);
+    const [holderCount, setHolderCount] = useState(110);
 
     useEffect(() => {
         // 초기 n2o 값 불러오기
@@ -66,17 +66,15 @@ export default function LeaderBoard() {
                 transition={{ duration: 1 }}
             >
                 <div className=" w-full h-full max-w-[500px] relative flex flex-col justify-evenly items-center " >
-                    <div className="w-[90%] max-w-[500px] px-[3%] flex flex-col items-start  ">
-                        <div className=" w-full flex flex-col">
-                            <p className="text-white text-[3.5vmin] sm:text-[2.5vmin] xs:text-[4.5vmin]">Union center</p>
-                        </div>
-                        <div className="w-[50vmin] sm:w-[40vmin] aspect-[306/59] relative">
+                    <div className="w-[90%] max-w-[500px] px-[3%] flex flex-col items-start relative ">
+                        <div className="w-[50vmin] sm:w-[40vmin] aspect-[353/99] relative">
                             <Image
-                                src="/image/sagu_logo.png"
+                                src="/image/ghibli_title_logo.png"
                                 alt="main logo"
                                 layout="fill"
                                 objectFit="cover"
                             />
+                            <p className="text-white absolute right-[5%] text-[3.5vmin] sm:text-[2.5vmin] xs:text-[4.5vmin]">Leaderboard</p>
                         </div>
                     </div>
                     <div className=" flex flex-col items-center ">
@@ -125,7 +123,7 @@ export default function LeaderBoard() {
                             <div className=" absolute left-[50%] top-[50%] p-[4%] -translate-y-[50%] -translate-x-[50%] w-[90%] h-[90%] rounded-full ">
                                 <div className="w-full aspect-[1/1] relative rounded-full ">
                                     <Image
-                                        src="/image/sagu_rank_main.png"
+                                        src="/image/ghabli_rank_icon.png"
                                         alt="main logo"
                                         layout="fill"
                                         objectFit="fill"
@@ -150,7 +148,7 @@ export default function LeaderBoard() {
                                 <div key={ranker.name} className="w-full flex justify-stretch items-center " >
                                     <div className=" relative w-[20%] aspect-[98/101]">
                                         <Image
-                                            src="/image/sagu_game.png"
+                                            src="/image/ghibli_game.png"
                                             alt="main logo"
                                             layout="fill"
                                             objectFit="cover"

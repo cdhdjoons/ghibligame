@@ -194,7 +194,7 @@ export default function ClaimTimer() {
                         <div className=" w-full flex justify-center gap-[10%]">
                             <div className="w-[8vmin] sm:w-[6vmin] aspect-[98/101] relative  ">
                                 <Image
-                                    src="/image/sagu_game.png"
+                                    src="/image/ghibli_game.png"
                                     alt="main logo"
                                     layout="fill"
                                     objectFit="cover"
@@ -208,9 +208,9 @@ export default function ClaimTimer() {
                     </div>
                     <div className=" py-2 bg-mainBoxBg rounded-[23px] w-[47%] flex flex-col justify-center items-center relative">
                         <div className=" w-full flex justify-center gap-[10%]">
-                            <div className="w-[8vmin] sm:w-[6vmin] aspect-[72/74] relative  ">
+                            <div className="w-[9vmin] sm:w-[7vmin] aspect-[90/72] relative  ">
                                 <Image
-                                    src="/image/sagu_ticket_icon.png"
+                                    src="/image/ghabli_ticket_icon.png"
                                     alt="main logo"
                                     layout="fill"
                                     objectFit="cover"
