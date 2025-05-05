@@ -32,26 +32,26 @@ export default function Balance() {
     const storedTickets = localStorage.getItem("tickets");
     // 대답을 하고 6시간 이내일 경우
     const storedTime = localStorage.getItem("timerStartTime");
-    
+
     if (storedTickets !== null && storedTime == null) {
       setTickets(Number(storedTickets));
     }
-    
+
     //몇 주 차 인지 값 불러오기
-    const storedWeek = localStorage.getItem("week");
-    if (storedWeek !== null) {
-      setWeek(Number(storedWeek));
-    }
-    const handleFocus = () => {
-      inputRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
-    };
+    // const storedWeek = localStorage.getItem("week");
+    // if (storedWeek !== null) {
+    //   setWeek(Number(storedWeek));
+    // }
+    // const handleFocus = () => {
+    //   inputRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+    // };
 
-    const inputElement = inputRef.current;
-    inputElement.addEventListener("focus", handleFocus);
+    // const inputElement = inputRef.current;
+    // inputElement.addEventListener("focus", handleFocus);
 
-    return () => {
-      inputElement.removeEventListener("focus", handleFocus);
-    };
+    // return () => {
+    //   inputElement.removeEventListener("focus", handleFocus);
+    // };
   }, []);
 
   useEffect(() => {
@@ -120,62 +120,23 @@ export default function Balance() {
         transition={{ duration: 1 }}
       >
         <div className="w-full h-full relative flex flex-col items-center justify-evenly " >
-          <div className=" w-[90%] flex flex-col px-[3%]">
-            <div className=" w-full flex flex-col ">
-              <p className="text-white text-[3.5vmin] sm:text-[2.5vmin] xs:text-[4.5vmin]">Task center</p>
-            </div>
-            <div className="w-[50vmin] sm:w-[40vmin] aspect-[306/59] relative">
+          <div className="w-[90%] max-w-[500px] px-[3%] flex flex-col items-start relative ">
+            <div className="w-[50vmin] sm:w-[40vmin] aspect-[353/99] relative">
               <Image
-                src="/image/sagu_logo.png"
+                src="/image/ghibli_title_logo.png"
                 alt="main logo"
                 layout="fill"
                 objectFit="cover"
               />
+              <p className="text-white absolute right-[5%] text-[3.5vmin] sm:text-[2.5vmin] xs:text-[4.5vmin]">AI center</p>
             </div>
           </div>
           <div className="w-full h-[85%] py-[2%] flex justify-center items-center relative">
-            <div className={` bg-[#41A4FF] h-full w-[90%] px-[3%] py-[3%] rounded-[23px] flex flex-col gap-[2%] justify-between`}>
-              <div className="w-full px-[3%] rounded-[23px] flex items-center relative ">
-                <div className=" w-full flex justify-between z-10 ">
-                  <div className="flex flex-col ">
-                    <div className=" flex justify-around">
-                      <p className="w-full text-[6vmin] sm:text-[2vmin] font-normal text-black ">This Week Question</p>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <p className={` text-black text-[3vmin] sm:text-[1.2vmin] `}>Verified Knowledge.<br />Real Rewards.</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="absolute top-0 right-[5%] w-[60%] aspect-[2/1] bg-gradient-to-b from-[#E1FF41] to-white opacity-60 rounded-[80%] blur-2xl filter"></div>
-              </div>
-              <div className="w-full h-[25%] bg-[#E1FF41] px-[3%] py-2 flex items-center relative ">
-                <p className="w-full text-black text-[3.5vmin] sm:text-[2vmin]">{questionDb[week].question}</p>
-              </div>
-              <div className=" w-full min-h-[35%] h-[40%] relative flex flex-col items-start font-normal drop-shadow-lg overflow-auto ">
-                <div className="flex flex-col ">
-                  <p className=" text-white text-[6vmin] sm:text-[4vmin] font-bold">How it works</p>
-                  <p className=" text-white text-[3.5vmin] sm:text-[2.3vmin] font-bold">Answer the Weekly Question</p>
-                  <p className=" text-white text-[3vmin] sm:text-[1.7vmin]">Share your thoughts, knowledge, or insights by submitting your response.</p>
-                </div>
-                <div className="flex flex-col">
-                  <p className=" text-white text-[3.5vmin] sm:text-[2.3vmin] font-bold">AI Reviews Your Submission</p>
-                  <p className=" text-white text-[3vmin] sm:text-[1.7vmin]">Within 6 hours, our AI will evaluate your answer based on accuracy, relevance, and depth.</p>
-                </div>
-                <p className=" text-white text-[3.5vmin] sm:text-[2.5vmin] font-bold">Earn SAGU Tokens</p>
-                <p className=" text-white text-[3vmin] sm:text-[2.5vmin]">Once reviewed, you'll automatically receive SAGU rewards based on the quality of your contribution.</p>
-              </div>
-              <textarea ref={inputRef} value={answer} onChange={handleChange} className="w-full bg-white min-h-[20%] h-[25%] py-[3%] px-[3%] placeholder:py-[12%] placeholder:text-center flex justify-center items-center text-left text-black text-[3.5vmin] sm:text-[2vmin] " placeholder="Fill out your answer"></textarea>
-              <div className="w-full h-[8%] min-h-[6%] flex justify-center relative gap-[5%]  ">
-                {tickets > 0 ? (<div onClick={useTickets} className="w-[45%] rounded-[24px] py-2  flex flex-col justify-center items-center relative bg-[#E1FF41] active:scale-90 transition-transform duration-100">
-                  <p className=" text-black text-[3.5vmin] sm:text-[1.5vmin] z-10">1 ticket / Answer</p>
-                </div>) : (<div className="w-[45%] rounded-[24px] py-2  flex flex-col justify-center items-center relative bg-[#585858] ">
-                  <p className=" text-black text-[3.5vmin] sm:text-[1.5vmin] z-10">1 ticket / Answer</p>
-                </div>)}
-                <Link href="/daily" className="w-[45%] rounded-[24px] py-2 flex flex-col justify-center items-center relative bg-[#FF9041] active:scale-90 transition-transform duration-100">
-                  <p className=" text-black text-[3.5vmin] sm:text-[1.5vmin]">Get Tickets</p>
-                </Link>
-              </div>
-            </div>
+            <iframe
+              className={` bg-white h-full w-[90%] p-[1%] rounded-[23px] flex flex-col gap-[2%] justify-between`}
+              src="https://www.aighibli.io/chat/ai_tele" // 원하는 웹사이트 URL
+              title="External Website"
+            />
           </div>
           {
             pop && (

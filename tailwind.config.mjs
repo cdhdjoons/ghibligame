@@ -27,7 +27,7 @@ export default {
         'xs': {'max': '345px'}, // 345px 이하일 때 적용
       },
       backgroundImage: {
-        'multi-gradient': 'linear-gradient(to bottom, rgba(245,193,80,0.5), rgba(222,133,161,0.5), rgba(126,104,231,0.5), rgba(126,143,244,0.5), rgba(87,178,251,0.5))',
+        'multi-gradient': 'radial-gradient(circle, #57B2FB80, #7E8FF480, #7E68E780, #DE85A180, #F5BB5080)',
       }
     },
   },

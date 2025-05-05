@@ -11,13 +11,13 @@ export default function ClaimTimer() {
     const TIMER_DURATION = 21600; // 6 hours in seconds
 
     const [time, setTime] = useState(TIMER_DURATION); // 10초 타이머
-    const [onClaim, setOnClaim] = useState(false);
+    const [onClaim, setOnClaim] = useState(true);
     const [n2o, setN2O] = useState(0);
     const timerRef = useRef(null);
     const hasFinished = useRef(false);
     const [tickets, setTickets] = useState(0);
     const [week, setWeek] = useState(0);
-    
+
 
     useEffect(() => {
         // localStorage에서 시작 시간 불러오기
@@ -30,7 +30,7 @@ export default function ClaimTimer() {
             const remainingTime = Math.max(TIMER_DURATION - elapsedTime, 0);
 
             if (remainingTime > 0) {
-                hasFinished.current = false;
+                // hasFinished.current = false;
                 setTime(remainingTime);
                 setOnClaim(false);
                 startInterval(remainingTime);
@@ -139,13 +139,12 @@ export default function ClaimTimer() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
             >
-                <div className="w-full h-[20%] flex justify-center items-center relative ">
+                <div className="w-full h-[15%] flex justify-center items-center relative ">
                     <div className="w-[90%] py-[5%] h-full sm:w-[90%] relative flex flex-col justify-between items-center rounded-[23px] bg-mainBoxBg">
                         <div className="w-full flex justify-center gap-[10%] items-center  ">
                             <p className="  text-[#E1FF41] text-[4.5vmin] sm:text-[2.5vmin] font-bold">Earn GHIB</p>
                             <p className=" text-[#808080] text-[4.5vmin] sm:text-[2.5vmin] font-bold ">{formatTime(time)}</p>
                         </div>
-                        <p className="text-white opacity-50 text-center text-[3vmin] sm:text-[1.5vmin]">AI is currently evaluating your response.</p>
                         <div className="w-full relative flex justify-center py-[2%] items-end ">
                             <div className="w-[80%] h-[1vmin] xs:h-[0.8vmin] sm:h-[0.7vmin] rounded-3xl bg-[#787880] relative ">
                                 <div className="w-full bg-[#007AFF] rounded-3xl h-full absolute left-0" style={{ width: progressWidth }}></div>
@@ -154,37 +153,37 @@ export default function ClaimTimer() {
                         </div>
                     </div>
                 </div>
-                <div className="w-full h-[45%] py-[2%] flex justify-center items-center relative">
-                    <div className={` bg-[#41A4FF] h-full w-[90%] px-[3%] py-[2%] rounded-[23px] flex flex-col gap-[2%] justify-between`}>
+                <div className="w-full h-[40%] flex justify-center items-center relative">
+                    <div className={` h-full w-[90%] px-[3%] py-[5%] rounded-[23px] flex flex-col gap-[2%] justify-between bg-no-repeat bg-cover`}
+                    style={{backgroundImage: 'url(/image/ghibli_claim_bg.png)'}}
+                    >
                         <div className="w-full px-[3%] rounded-[23px] flex items-center relative ">
                             <div className=" w-full flex justify-between z-10 ">
-                                <div className="flex flex-col ">
-                                    <div className=" flex justify-around">
-                                        <p className="w-full text-[6vmin] sm:text-[2vmin] font-normal text-black ">This Week Question</p>
-                                    </div>
-                                    <div className="flex justify-between items-center">
-                                        <p className={` text-black text-[3vmin] sm:text-[1.2vmin] `}>Verified Knowledge.<br />Real Rewards.</p>
-                                    </div>
-                                </div>
-                                <div className="w-[18vmin] sm:w-[6vmin] aspect-[114/129] relative  ">
+                                <div className="w-full aspect-[353/99] relative  ">
                                     <Image
-                                        src="/image/sagu_main_icon.png"
+                                        src="/image/ghibli_title_logo.png"
                                         alt="main logo"
                                         layout="fill"
                                         objectFit="cover"
                                     />
                                 </div>
                             </div>
-                            <div className="absolute top-0 right-[5%] w-[60%] aspect-[2/1] bg-gradient-to-b from-[#E1FF41] to-white opacity-60 rounded-[80%] blur-2xl filter"></div>
+                            
                         </div>
-                        <div className="w-full h-[50%] bg-[#E1FF41] px-[3%] py-2 flex items-center relative ">
-                            <p className="w-full text-black text-[3.5vmin] sm:text-[2vmin]">{questionDb[week].question}</p>
+                        <div className="w-full h-[20%] px-[3%] py-2 flex flex-col justify-center text-center items-center relative ">
+                            <p className="w-full text-white text-[4vmin] sm:text-[2.5vmin]">Where AI Meets Imagination</p>
+                            <p className="w-full text-white text-[3vmin] sm:text-[1.5vmin]">Earn points to start conversations with AI agents.</p>
                         </div>
                         <div className="w-full h-[15%] flex justify-center relative gap-[5%]  ">
-                            <Link href="/balance" className="w-[45%] rounded-[24px] py-2  flex flex-col justify-center items-center relative bg-[#E1FF41] active:scale-90 transition-transform duration-100">
-                                <p className=" text-black text-[3.5vmin] sm:text-[1.5vmin] z-10">Go to Answer</p>
-                            </Link>
-                            <Link href="/daily" className="w-[45%] rounded-[24px] py-2 flex flex-col justify-center items-center relative bg-[#FF9041] active:scale-90 transition-transform duration-100">
+                            {onClaim ? <div onClick={startTimer} className="w-[45%] rounded-[24px] py-2  flex flex-col justify-center items-center relative bg-[#C9FF93] active:scale-90 transition-transform duration-100">
+                                <p className=" text-black text-[3.5vmin] sm:text-[1.5vmin] z-10">Claim now</p>
+                            </div> :
+                                <div className="w-[45%] rounded-[24px] py-2  flex flex-col justify-center items-center relative bg-[#C9FF93] active:scale-90 transition-transform duration-100">
+                                    <p className=" text-black text-[3.5vmin] sm:text-[1.5vmin] z-10">On Claim</p>
+                                </div>
+                            }
+
+                            <Link href="/daily" className="w-[45%] rounded-[24px] py-2 flex flex-col justify-center items-center relative bg-[#34FA9E] active:scale-90 transition-transform duration-100">
                                 <p className=" text-black text-[3.5vmin] sm:text-[1.5vmin]">Get Tickets</p>
                             </Link>
                         </div>
@@ -205,7 +204,7 @@ export default function ClaimTimer() {
                mt-1 `}>{n2o >= 1000000 ? `${n2o / 1000000}m` : n2o >= 1000 ? `${n2o / 1000}k` : n2o}</p>
                         </div>
                         <p className=" w-full py-[2%] mt-[4%] text-center text-white text-[3.8vmin] xs:text-[4.5vmin] sm:text-[2.3vmin]
-                        active:scale-90 transition-transform duration-200">Your SAGU Point</p>
+                        active:scale-90 transition-transform duration-200">Your GHIB Point</p>
                     </div>
                     <div className=" py-2 bg-mainBoxBg rounded-[23px] w-[47%] flex flex-col justify-center items-center relative">
                         <div className=" w-full flex justify-center gap-[10%]">
@@ -225,7 +224,7 @@ export default function ClaimTimer() {
                 </div>
                 <div className="  w-[90%] h-[13%] flex flex-col gap-[5%] justify-evenly items-center relative">
                     <div className="w-full text-white text-[4vmin] sm:text-[2vmin]">Join Our community</div>
-                    <a href="https://x.com/SAGE_officialX" target="_blank" rel="noopener noreferrer" className="bg-white rounded-[30px] flex justify-between items-center w-full py-[1%] px-4">
+                    <a href="https://x.com/ghibliai_bnb" target="_blank" rel="noopener noreferrer" className="bg-white rounded-[30px] flex justify-between items-center w-full py-[1%] px-4">
                         <div className="w-[8vmin] sm:w-[5vmin] aspect-[60/60] relative  ">
                             <Image
                                 src="/image/sagu_x_icon.png"
@@ -234,7 +233,7 @@ export default function ClaimTimer() {
                                 objectFit="cover"
                             />
                         </div>
-                        <p className="text-black text-[4vmin] sm:text-[2vmin]">Join our X , earn SAGU Point</p>
+                        <p className="text-black text-[4vmin] sm:text-[2vmin]">Join our X , earn GHIB Point</p>
                         <p className="text-black h-full opacity-60">...</p>
                     </a>
                 </div>

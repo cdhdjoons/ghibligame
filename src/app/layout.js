@@ -8,15 +8,15 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: "Sage Union",
-  description: "SAGU_WepApp",
+  title: "GHIB",
+  description: "GHIB_WepApp",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`bg-black flex min-h-dvh justify-center m-0 p-0 ${inter.className}`} >
-        <div className=" w-full h-screen max-w-[500px] max-h-[1080px] bg-multi-gradient relative flex flex-col justify-between overflow-scroll"
+        <div className=" w-full h-screen max-w-[500px] max-h-[1080px] bg-multi-gradient relative flex flex-col justify-between overflow-hidden"
           >
             {children}
           <Analytics />
