@@ -224,7 +224,7 @@ export default function ClaimTimer() {
                 </div>
                 <div className="  w-[90%] h-[13%] flex flex-col gap-[5%] justify-evenly items-center relative">
                     <div className="w-full text-white text-[4vmin] sm:text-[2vmin]">Join Our community</div>
-                    <a href="https://x.com/ghibliai_bnb" target="_blank" rel="noopener noreferrer" className="bg-white rounded-[30px] flex justify-between items-center w-full py-[1%] px-4">
+                    <a href="https://x.com/Ghibli_AI_" target="_blank" rel="noopener noreferrer" className="bg-white rounded-[30px] flex justify-between items-center w-full py-[1%] px-4">
                         <div className="w-[8vmin] sm:w-[5vmin] aspect-[60/60] relative  ">
                             <Image
                                 src="/image/sagu_x_icon.png"
